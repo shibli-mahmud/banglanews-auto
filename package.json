@@ -9,7 +9,9 @@
     "lint": "next lint",
     "generate:sitemap": "node scripts/generate-sitemap.js",
     "fetch:news": "node scripts/fetch-and-generate.js",
-    "social:distribute": "node scripts/social-distribute.js"
+    "social:distribute": "node scripts/social-distribute.js",
+    "preflight": "node scripts/preflight-check.js",
+    "verify": "npm run preflight && npm run build"
   },
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
