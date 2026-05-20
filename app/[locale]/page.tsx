@@ -2,10 +2,11 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import NewsCard from "@/components/NewsCard";
 import AdBanner from "@/components/AdBanner";
-import { Locale } from "@/i18n";
+import { Locale, isLocale } from "@/i18n";
 import { getAllArticles } from "@/lib/content";
 import { getMessages } from "@/lib/messages";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 const CATEGORY_KEYS = ["all", "bangladesh", "international", "politics", "sports", "tech"] as const;
 type CategoryKey = (typeof CATEGORY_KEYS)[number];
@@ -14,10 +15,12 @@ export default function HomePage({
   params,
   searchParams
 }: {
-  params: { locale: Locale };
+  params: { locale: string };
   searchParams?: { category?: string };
 }) {
-  const { locale } = params;
+  const rawLocale = params.locale.toLowerCase();
+  if (!isLocale(rawLocale)) notFound();
+  const locale: Locale = rawLocale;
   const t = getMessages(locale);
   const articles = getAllArticles(locale);
   const selectedCategory = (searchParams?.category ?? "all").toLowerCase();
