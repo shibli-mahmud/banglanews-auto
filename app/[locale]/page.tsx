@@ -84,14 +84,21 @@ export default function HomePage({
           <div className="grid gap-4 md:grid-cols-2">
             {filteredArticles.map((article, idx) => (
               <div key={article.slug} className="space-y-4">
-                <NewsCard article={article} />
+                <NewsCard article={article} readMoreLabel={t.home.readMore} />
                 {(idx + 1) % 4 === 0 ? <AdBanner adSlot={`200000000${idx}`} adFormat="horizontal" /> : null}
               </div>
             ))}
           </div>
+          {filteredArticles.length === 0 ? (
+            <div className="rounded border border-dashed border-slate-300 bg-white p-6 text-center text-slate-600">
+              {t.home.noArticles}
+            </div>
+          ) : null}
         </div>
-        <aside className="space-y-4 lg:col-span-3">
-          <AdBanner adSlot="3000000001" adFormat="rectangle" />
+        <aside className="space-y-4 lg:col-span-3 lg:sticky lg:top-4 lg:self-start">
+          <div className="hidden lg:block">
+            <AdBanner adSlot="3000000001" adFormat="rectangle" />
+          </div>
           <div className="rounded bg-white p-4 shadow-sm">
             <h2 className="mb-3 text-lg font-semibold">{t.home.trending}</h2>
             <ul className="space-y-2 text-sm">
@@ -104,7 +111,9 @@ export default function HomePage({
               ))}
             </ul>
           </div>
-          <AdBanner adSlot="3000000002" adFormat="rectangle" />
+          <div className="hidden lg:block">
+            <AdBanner adSlot="3000000002" adFormat="rectangle" />
+          </div>
         </aside>
       </section>
       <section className="mx-auto max-w-6xl px-4 pb-4">

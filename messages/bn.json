@@ -13,6 +13,8 @@
   "home": {
     "featuredTitle": "শীর্ষ খবর",
     "latestNews": "সর্বশেষ খবর",
+    "readMore": "বিস্তারিত পড়ুন",
+    "noArticles": "এই বিভাগে এখনো কোনো আর্টিকেল পাওয়া যায়নি।",
     "trending": "ট্রেন্ডিং আর্টিকেল",
     "categories": {
       "all": "সব",

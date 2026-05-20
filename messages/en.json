@@ -13,6 +13,8 @@
   "home": {
     "featuredTitle": "Top Stories",
     "latestNews": "Latest News",
+    "readMore": "Read more",
+    "noArticles": "No articles found for this category yet.",
     "trending": "Trending Articles",
     "categories": {
       "all": "All",

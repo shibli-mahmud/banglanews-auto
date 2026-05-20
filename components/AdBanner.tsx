@@ -6,21 +6,31 @@ type Props = {
   className?: string;
 };
 
+const formatClasses: Record<NonNullable<Props["adFormat"]>, string> = {
+  auto: "min-h-[90px]",
+  horizontal: "min-h-[90px]",
+  rectangle: "min-h-[280px]"
+};
+
 export default function AdBanner({ adSlot, adFormat = "auto", className }: Props) {
   const adClient = process.env.NEXT_PUBLIC_ADSENSE_ID;
   const showPlaceholder = process.env.NODE_ENV !== "production" || !adClient;
+  const baseClasses = `w-full rounded ${formatClasses[adFormat]} ${className ?? ""}`;
 
   if (showPlaceholder) {
     return (
-      <div className={`w-full rounded border border-dashed border-slate-300 p-4 text-center text-xs text-slate-500 ${className ?? ""}`}>
+      <div
+        className={`${baseClasses} border border-dashed border-slate-300 p-4 text-center text-xs text-slate-500`}
+      >
         Ad Placeholder ({adFormat}) - slot {adSlot}
       </div>
     );
   }
 
   return (
-    <div className={className}>
+    <div className={baseClasses}>
       <Script
+        id="adsense-loader"
         async
         strategy="afterInteractive"
         crossOrigin="anonymous"
