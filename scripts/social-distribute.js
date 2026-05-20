@@ -4,7 +4,7 @@ const path = require("path");
 const matter = require("gray-matter");
 
 const contentRoot = path.join(process.cwd(), "content");
-const baseUrl = process.env.SITE_URL || "https://yourdomain.com";
+const baseUrl = process.env.SITE_URL || "https://banglanews-auto.vercel.app";
 const postLimit = Number(process.env.SOCIAL_POST_LIMIT || 6);
 const postWindowHours = Number(process.env.SOCIAL_POST_WINDOW_HOURS || 2);
 

@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const matter = require("gray-matter");
 
-const baseUrl = process.env.SITE_URL || "https://yourdomain.com";
+const baseUrl = process.env.SITE_URL || "https://banglanews-auto.vercel.app";
 const contentRoot = path.join(process.cwd(), "content");
 const output = path.join(process.cwd(), "public", "sitemap.xml");
 

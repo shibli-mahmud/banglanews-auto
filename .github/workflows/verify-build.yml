@@ -21,5 +21,5 @@ jobs:
       - run: npm ci
       - run: npm run preflight
         env:
-          SITE_URL: https://yourdomain.com
+          SITE_URL: https://banglanews-auto.vercel.app
       - run: npm run build

@@ -15,7 +15,7 @@ type Props = {
 export function generateMetadata({ params }: Props): Metadata {
   const article = getArticleBySlug(params.locale, params.slug);
   if (!article) return {};
-  const siteUrl = process.env.SITE_URL || "https://yourdomain.com";
+  const siteUrl = process.env.SITE_URL || "https://banglanews-auto.vercel.app";
   const canonical = `${siteUrl}/${params.locale}/news/${params.slug}`;
   return {
     title: `${article.title} | BanglaBriefing`,
@@ -45,7 +45,7 @@ export default function ArticlePage({ params }: Props) {
   const article = getArticleBySlug(params.locale, params.slug);
   if (!article) notFound();
   const t = getMessages(params.locale);
-  const siteUrl = process.env.SITE_URL || "https://yourdomain.com";
+  const siteUrl = process.env.SITE_URL || "https://banglanews-auto.vercel.app";
   const articleUrl = `${siteUrl}/${params.locale}/news/${params.slug}`;
   const whatsappShareUrl = `https://wa.me/?text=${encodeURIComponent(`${article.title} - ${articleUrl}`)}`;
 

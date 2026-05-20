@@ -12,8 +12,8 @@ export default function PrivacyPolicyPage({ params }: { params: { locale: Locale
       </p>
       <p className="text-slate-700">
         {isBn
-          ? "বিস্তারিত তথ্যের জন্য contact@banglabriefing.local এ যোগাযোগ করুন।"
-          : "For details, contact us at contact@banglabriefing.local."}
+          ? "বিস্তারিত তথ্যের জন্য mrmahmud10121@gmail.com এ যোগাযোগ করুন।"
+          : "For details, contact us at mrmahmud10121@gmail.com."}
       </p>
     </main>
   );
