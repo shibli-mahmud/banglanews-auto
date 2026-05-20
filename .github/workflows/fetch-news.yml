@@ -8,14 +8,18 @@ on:
 jobs:
   fetch-news:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          ref: version1
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
-          node-version: "18"
+          node-version: "24"
 
       - run: npm install
       - run: npm run fetch:news
@@ -43,8 +47,8 @@ jobs:
 
       - name: Commit new articles
         run: |
-          git config user.name "NewsBot"
-          git config user.email "bot@banglabriefing.com"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           git add content/ public/sitemap.xml
           git diff --staged --quiet || git commit -m "Auto: Add new articles $(date)"
           git push
