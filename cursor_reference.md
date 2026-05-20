@@ -29,7 +29,7 @@
 | Content Storage | Markdown files in /content folder | Free |
 | Automation | GitHub Actions | Free |
 | Hosting | Vercel | Free |
-| AI Rewriting | Google Gemini API (gemini-1.5-flash) | Free tier |
+| AI Rewriting | Google Gemini API (gemini-2.0-flash) | Free tier |
 | Images | Pexels API | Free |
 | RSS Parsing | rss-parser npm package | Free |
 | i18n (bilingual) | next-intl | Free |
@@ -383,11 +383,11 @@ jobs:
 ### Step 2: Free Tier Limits (as of 2025)
 | Model | Free RPM | Free TPM | Free RPD |
 |---|---|---|---|
-| gemini-1.5-flash | 15 req/min | 1M tokens/min | 1500 req/day |
+| gemini-2.0-flash | (see Google AI Studio) | (see Google AI Studio) | (see Google AI Studio) |
 | gemini-1.5-pro | 2 req/min | 32K tokens/min | 50 req/day |
 
-**Use `gemini-1.5-flash`** — it's fast, free, and perfect for article rewriting.
-At 1500 requests/day, you can generate **up to 1500 articles per day for free.**
+**Use `gemini-2.0-flash`** — current generation flash model for article rewriting.
+Check [Google AI Studio](https://aistudio.google.com) for current free-tier quotas.
 
 ### Step 3: How the Script Calls Gemini API
 
@@ -397,7 +397,7 @@ At 1500 requests/day, you can generate **up to 1500 articles per day for free.**
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
 async function rewriteArticle(headline, summary, category) {
   const prompt = `

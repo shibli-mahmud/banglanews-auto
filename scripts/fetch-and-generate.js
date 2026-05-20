@@ -14,16 +14,16 @@ const MIN_SUMMARY_LENGTH = 40;
 
 const RSS_FEEDS = [
   "https://feeds.bbci.co.uk/news/rss.xml",
-  "https://feeds.reuters.com/reuters/topNews",
-  "https://rss.cnn.com/rss/edition.rss",
+  "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
+  "https://feeds.skynews.com/feeds/rss/home.xml",
   "https://www.thedailystar.net/rss.xml",
   "https://www.prothomalo.com/feed",
-  "https://bdnews24.com/feed/",
-  "https://www.dhakatribune.com/feed"
+  "https://www.tbsnews.net/feed",
+  "https://thefinancialexpress.com.bd/feed"
 ];
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
 function ensureDir(dir) {
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });

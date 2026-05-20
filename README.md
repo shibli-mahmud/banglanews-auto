@@ -8,7 +8,7 @@ Articles are generated from RSS feeds using Gemini and published as markdown con
 - Next.js 14 (App Router)
 - Tailwind CSS
 - next-intl
-- Google Gemini API (`gemini-1.5-flash`)
+- Google Gemini API (`gemini-2.0-flash`)
 - Pexels API
 - GitHub Actions + Vercel
 
