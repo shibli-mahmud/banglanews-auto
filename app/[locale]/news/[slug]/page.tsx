@@ -15,20 +15,27 @@ type Props = {
 export function generateMetadata({ params }: Props): Metadata {
   const article = getArticleBySlug(params.locale, params.slug);
   if (!article) return {};
+  const siteUrl = process.env.SITE_URL || "https://yourdomain.com";
+  const canonical = `${siteUrl}/${params.locale}/news/${params.slug}`;
   return {
     title: `${article.title} | BanglaBriefing`,
     description: article.excerpt,
     keywords: article.tags,
+    alternates: {
+      canonical
+    },
     openGraph: {
       title: article.title,
       description: article.excerpt,
       images: [article.image],
       type: "article",
-      locale: article.locale === "bn" ? "bn_BD" : "en_US"
+      locale: article.locale === "bn" ? "bn_BD" : "en_US",
+      url: canonical
     },
     twitter: {
       card: "summary_large_image",
       title: article.title,
+      description: article.excerpt,
       images: [article.image]
     }
   };
@@ -38,6 +45,9 @@ export default function ArticlePage({ params }: Props) {
   const article = getArticleBySlug(params.locale, params.slug);
   if (!article) notFound();
   const t = getMessages(params.locale);
+  const siteUrl = process.env.SITE_URL || "https://yourdomain.com";
+  const articleUrl = `${siteUrl}/${params.locale}/news/${params.slug}`;
+  const whatsappShareUrl = `https://wa.me/?text=${encodeURIComponent(`${article.title} - ${articleUrl}`)}`;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -45,7 +55,9 @@ export default function ArticlePage({ params }: Props) {
     headline: article.title,
     datePublished: article.date,
     image: article.image,
-    author: { "@type": "Organization", name: "BanglaBriefing" }
+    author: { "@type": "Organization", name: "BanglaBriefing" },
+    mainEntityOfPage: articleUrl,
+    description: article.excerpt
   };
 
   return (
@@ -60,10 +72,20 @@ export default function ArticlePage({ params }: Props) {
             // eslint-disable-next-line @next/next/no-img-element
             <img src={article.image} alt={article.imageAlt} className="mb-5 h-80 w-full rounded object-cover" />
           ) : null}
+          <div className="mb-5">
+            <a
+              href={whatsappShareUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center rounded bg-green-600 px-3 py-2 text-sm font-medium text-white hover:bg-green-700"
+            >
+              {params.locale === "bn" ? "হোয়াটসঅ্যাপে শেয়ার করুন" : "Share on WhatsApp"}
+            </a>
+          </div>
           <ArticleBody body={article.body} />
         </article>
       </section>
-      <Footer />
+      <Footer locale={params.locale} links={t.footer} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
     </main>
   );

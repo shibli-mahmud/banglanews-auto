@@ -4,6 +4,12 @@
     "about": "About",
     "contact": "Contact"
   },
+  "footer": {
+    "about": "About",
+    "contact": "Contact",
+    "privacy": "Privacy Policy",
+    "terms": "Terms"
+  },
   "home": {
     "featuredTitle": "Top Stories",
     "latestNews": "Latest News",

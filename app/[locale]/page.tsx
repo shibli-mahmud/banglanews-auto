@@ -110,7 +110,7 @@ export default function HomePage({
       <section className="mx-auto max-w-6xl px-4 pb-4">
         <AdBanner adSlot="5000000001" adFormat="horizontal" />
       </section>
-      <Footer />
+      <Footer locale={locale} links={t.footer} />
     </main>
   );
 }

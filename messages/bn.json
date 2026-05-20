@@ -4,6 +4,12 @@
     "about": "আমাদের সম্পর্কে",
     "contact": "যোগাযোগ"
   },
+  "footer": {
+    "about": "আমাদের সম্পর্কে",
+    "contact": "যোগাযোগ",
+    "privacy": "প্রাইভেসি পলিসি",
+    "terms": "টার্মস"
+  },
   "home": {
     "featuredTitle": "শীর্ষ খবর",
     "latestNews": "সর্বশেষ খবর",
