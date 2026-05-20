@@ -6,24 +6,23 @@ const slugify = require("slugify");
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 const parser = new Parser();
-const MAX_ITEMS_PER_FEED = 5;
+const MAX_ITEMS_PER_FEED = 2;
 const MAX_ARTICLES_PER_RUN = Number(process.env.MAX_ARTICLES_PER_RUN || 25);
-const REQUEST_DELAY_MS = Number(process.env.REQUEST_DELAY_MS || 4000);
+const REQUEST_DELAY_MS = Number(process.env.REQUEST_DELAY_MS || 20000);
 const RETRY_LIMIT = Number(process.env.RETRY_LIMIT || 3);
+const RETRY_DELAY_MS = Number(process.env.RETRY_DELAY_MS || 30000);
 const MIN_SUMMARY_LENGTH = 40;
 
 const RSS_FEEDS = [
   "https://feeds.bbci.co.uk/news/rss.xml",
-  "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
-  "https://feeds.skynews.com/feeds/rss/home.xml",
   "https://www.thedailystar.net/rss.xml",
   "https://www.prothomalo.com/feed",
-  "https://www.tbsnews.net/feed",
-  "https://thefinancialexpress.com.bd/feed"
+  "https://en.prothomalo.com/feed",
+  "https://www.newagebd.net/feed/rss"
 ];
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-lite" });
 
 function ensureDir(dir) {
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
@@ -58,10 +57,10 @@ async function withRetry(taskName, fn) {
       return await fn();
     } catch (error) {
       lastError = error;
-      const delay = Math.min(2000 * 2 ** (attempt - 1), 10000);
       console.warn(`${taskName} failed on attempt ${attempt}/${RETRY_LIMIT}: ${error.message}`);
       if (attempt < RETRY_LIMIT) {
-        await sleep(delay);
+        console.warn(`Waiting ${RETRY_DELAY_MS / 1000}s before retry...`);
+        await sleep(RETRY_DELAY_MS);
       }
     }
   }
