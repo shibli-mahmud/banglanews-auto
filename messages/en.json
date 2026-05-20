@@ -5,7 +5,16 @@
     "contact": "Contact"
   },
   "home": {
+    "featuredTitle": "Top Stories",
     "latestNews": "Latest News",
-    "trending": "Trending Articles"
+    "trending": "Trending Articles",
+    "categories": {
+      "all": "All",
+      "bangladesh": "Bangladesh",
+      "international": "International",
+      "politics": "Politics",
+      "sports": "Sports",
+      "tech": "Tech"
+    }
   }
 }

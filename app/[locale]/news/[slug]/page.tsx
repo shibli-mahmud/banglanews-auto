@@ -61,9 +61,6 @@ export default function ArticlePage({ params }: Props) {
             <img src={article.image} alt={article.imageAlt} className="mb-5 h-80 w-full rounded object-cover" />
           ) : null}
           <ArticleBody body={article.body} />
-          <div className="my-6">
-            <AdBanner adSlot="4000000001" adFormat="rectangle" />
-          </div>
         </article>
       </section>
       <Footer />
