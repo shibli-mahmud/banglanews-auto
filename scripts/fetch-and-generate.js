@@ -22,7 +22,7 @@ const RSS_FEEDS = [
 ];
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-lite" });
+const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash-lite" });
 
 function ensureDir(dir) {
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
@@ -83,34 +83,12 @@ async function fetchPexelsImage(query) {
 }
 
 async function rewriteArticle(headline, summary, category) {
-  const prompt = `
-You are a professional news journalist. Based on the following news headline and summary, write a complete, original news article.
-
+  const shortSummary = summary.slice(0, 280);
+  const prompt = `Bilingual news JSON from headline/summary. EN+BN, 250-350 words each, journalistic.
 Headline: ${headline}
-Summary: ${summary}
+Summary: ${shortSummary}
 Category: ${category}
-
-Write the article in TWO versions:
-1. English version (400-600 words, professional journalistic tone)
-2. Bangla version (400-600 words, same content in Bangla)
-
-Return ONLY a valid JSON object, no markdown, no backticks:
-{
-  "en": {
-    "title": "English title here",
-    "excerpt": "Short 2-sentence summary",
-    "body": "Full article body in English...",
-    "tags": ["tag1", "tag2", "tag3"],
-    "category": "category name"
-  },
-  "bn": {
-    "title": "Bangla title here",
-    "excerpt": "Short Bangla summary",
-    "body": "Full article body in Bangla...",
-    "tags": ["ট্যাগ১", "ট্যাগ২"],
-    "category": "বিভাগ"
-  }
-}`;
+Return only JSON: {"en":{"title":"","excerpt":"","body":"","tags":[],"category":""},"bn":{"title":"","excerpt":"","body":"","tags":[],"category":""}}`;
 
   return withRetry("Gemini rewrite", async () => {
     const result = await model.generateContent(prompt);
