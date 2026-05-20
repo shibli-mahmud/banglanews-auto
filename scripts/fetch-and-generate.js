@@ -102,7 +102,7 @@ async function run() {
   for (const feedUrl of RSS_FEEDS) {
     try {
       const feed = await parser.parseURL(feedUrl);
-      const items = (feed.items || []).slice(0, 3);
+      const items = (feed.items || []).slice(0, 5);
 
       for (const item of items) {
         const headline = item.title || "Untitled";
