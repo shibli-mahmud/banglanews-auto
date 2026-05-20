@@ -1,0 +1,11 @@
+{
+  "header": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "home": {
+    "latestNews": "Latest News",
+    "trending": "Trending Articles"
+  }
+}

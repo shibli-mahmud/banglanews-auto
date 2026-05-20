@@ -1,0 +1,36 @@
+name: Fetch and Generate News
+
+on:
+  schedule:
+    - cron: "0 */4 * * *"
+  workflow_dispatch:
+
+jobs:
+  fetch-news:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+
+      - run: npm install
+      - run: npm run fetch:news
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+
+      - run: npm run generate:sitemap
+        env:
+          SITE_URL: ${{ vars.SITE_URL }}
+
+      - name: Commit new articles
+        run: |
+          git config user.name "NewsBot"
+          git config user.email "bot@banglabriefing.com"
+          git add content/ public/sitemap.xml
+          git diff --staged --quiet || git commit -m "Auto: Add new articles $(date)"
+          git push
