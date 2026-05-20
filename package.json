@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "generate:sitemap": "node scripts/generate-sitemap.js",
-    "fetch:news": "node scripts/fetch-and-generate.js"
+    "fetch:news": "node scripts/fetch-and-generate.js",
+    "social:distribute": "node scripts/social-distribute.js"
   },
   "dependencies": {
     "@google/generative-ai": "^0.21.0",

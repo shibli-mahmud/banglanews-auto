@@ -30,6 +30,17 @@ jobs:
         env:
           SITE_URL: ${{ vars.SITE_URL }}
 
+      - name: Distribute to social channels
+        if: ${{ vars.SOCIAL_AUTO_POST_ENABLED == 'true' }}
+        run: npm run social:distribute
+        env:
+          SITE_URL: ${{ vars.SITE_URL }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          SOCIAL_WEBHOOK_URL: ${{ secrets.SOCIAL_WEBHOOK_URL }}
+          SOCIAL_POST_LIMIT: "6"
+          SOCIAL_POST_WINDOW_HOURS: "2"
+
       - name: Commit new articles
         run: |
           git config user.name "NewsBot"
