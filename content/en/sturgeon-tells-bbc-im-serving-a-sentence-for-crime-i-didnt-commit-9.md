@@ -1,0 +1,13 @@
+---
+title: "Sturgeon Claims 'Serving Sentence' for Uncommitted Crime Amidst SNP Embezzlement Scandal"
+date: "2026-05-31T12:13:53.000Z"
+slug: "sturgeon-tells-bbc-im-serving-a-sentence-for-crime-i-didnt-commit-9"
+category: "General"
+tags: ["Nicola Sturgeon","SNP","Scottish Politics","Embezzlement Scandal","BBC Interview"]
+image: "https://images.pexels.com/photos/6077431/pexels-photo-6077431.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+imageAlt: "Sturgeon Claims 'Serving Sentence' for Uncommitted Crime Amidst SNP Embezzlement Scandal"
+excerpt: "Former Scottish First Minister Nicola Sturgeon, in an emotional interview with the BBC's Laura Kuenssberg, expressed her deep sense of injustice over the ongoing investigation into the SNP's finances, stating she feels she is 'serving a sentence for a crime I didn't commit.' The conversation, marked by moments of palpable emotion, saw Sturgeon grapple with difficult questions about the alleged embezzlement scandal that has rocked her former party."
+locale: "en"
+---
+
+In a candid and at times visibly emotional television appearance, Nicola Sturgeon addressed the swirling controversy surrounding the SNP's finances. Speaking to the BBC's Laura Kuenssberg, the former First Minister of Scotland articulated a profound sense of being unfairly targeted. "I feel like I'm serving a sentence for a crime that I didn't commit," Sturgeon stated, her voice wavering as she described the personal toll the investigation has taken. The interview delved into the ongoing police inquiry into how over £600,000 in donations to the Scottish National Party were allegedly misused.  Sturgeon, who stepped down as leader and First Minister last year, has consistently denied any wrongdoing. However, she acknowledged the gravity of the allegations and the impact they have had on public trust and the party's reputation.  When pressed by Kuenssberg on the specifics of the investigation and the questions surrounding the missing funds, Sturgeon appeared to struggle to maintain her composure, at one point appearing to fight back tears. She emphasized her commitment to cooperating fully with the authorities and expressed a strong desire for the truth to emerge. The former leader also touched upon the broader implications of the scandal for the independence movement, suggesting that the internal turmoil could distract from the core political objectives. The interview offered a rare glimpse into the personal burden Sturgeon is carrying as the investigation continues to unfold, underscoring the deeply personal nature of the political storm she is currently weathering.
