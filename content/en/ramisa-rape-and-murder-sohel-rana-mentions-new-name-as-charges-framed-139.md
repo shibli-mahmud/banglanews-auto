@@ -1,0 +1,13 @@
+---
+title: "Ramisa Rape and Murder: Sohel Rana Names New Suspect as Charges Framed"
+date: "2026-06-01T10:43:08.000Z"
+slug: "ramisa-rape-and-murder-sohel-rana-mentions-new-name-as-charges-framed-139"
+category: "General"
+tags: ["Ramisa murder","Sohel Rana","new suspect","Dollar","charges framed","crime investigation","Bangladesh"]
+image: "https://images.pexels.com/photos/11359324/pexels-photo-11359324.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+imageAlt: "Ramisa Rape and Murder: Sohel Rana Names New Suspect as Charges Framed"
+excerpt: "In a significant development concerning the high-profile rape and murder of Ramisa, a key suspect, Sohel Rana, has implicated a new individual during the framing of charges. Rana, who is reportedly a close associate of the victim, claimed that a man known by the alias 'Dollar' was also involved in the crime. This revelation came as the court moved forward with formal charges against those accused, potentially shifting the focus of the ongoing investigation. Authorities are now reportedly working to identify and locate 'Dollar' to ascertain his role in the tragic incident. The case has garnered considerable public attention, and this latest development is expected to intensify scrutiny on the investigation's progress and the pursuit of all perpetrators."
+locale: "en"
+---
+
+The investigation into the brutal rape and murder of Ramisa has taken a new turn as prime suspect Sohel Rana has revealed the name of another individual allegedly involved in the crime. During the formal framing of charges by the court on Monday, June 1, 2026, Rana, reportedly a close confidante of the victim, pointed a finger at a man operating under the moniker 'Dollar.' This unexpected disclosure has prompted authorities to broaden their search, with immediate efforts underway to identify and apprehend this newly named suspect. The prosecution is expected to consider this information as it builds its case, potentially leading to a revised list of defendants. The Ramisa case has been a focal point of public concern, with many demanding swift justice. The mention of 'Dollar' suggests a more complex conspiracy than initially believed, adding a layer of urgency to the ongoing probe. Legal experts suggest that if corroborated, this new testimony could significantly impact the trial proceedings. The police are reportedly following several leads to gather more information about 'Dollar's' identity and his alleged connection to the heinous crime. The victim's family, who has been anxiously awaiting updates, hopes this development will bring them closer to finding closure and ensuring all those responsible are brought to justice. The court has adjourned the proceedings, awaiting further investigations into this new lead.
