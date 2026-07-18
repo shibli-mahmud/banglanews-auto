@@ -1,0 +1,13 @@
+---
+title: "Burnham to Unveil Plans for New North Sea Oil and Gas Drilling Amidst Labour Scrutiny"
+date: "2026-07-18T15:36:21.000Z"
+slug: "burnham-to-announce-plans-for-new-north-sea-oil-and-gas-drilling-6"
+category: "General"
+tags: ["Andy Burnham","North Sea","Oil and Gas","Labour Party","Climate Change","Energy Security"]
+image: "https://images.pexels.com/photos/3192662/pexels-photo-3192662.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+imageAlt: "Burnham to Unveil Plans for New North Sea Oil and Gas Drilling Amidst Labour Scrutiny"
+excerpt: "Greater Manchester Mayor Andy Burnham is reportedly set to announce controversial plans for new oil and gas drilling in the North Sea, a move that directly challenges the Labour party's official stance. The party's 2024 general election manifesto explicitly pledged not to issue new drilling licences, framing this as a key element of its commitment to tackling climate change and transitioning to renewable energy sources. This divergence from the party line is expected to trigger significant debate within Labour and among environmental groups."
+locale: "en"
+---
+
+Sources close to the Greater Manchester Mayor suggest Andy Burnham is preparing to unveil a policy proposal that includes support for new oil and gas exploration in the North Sea. This potential announcement marks a significant departure from the Labour party's national policy, which was cemented in their 2024 general election manifesto. The manifesto clearly stated that a Labour government would not grant any new licences for fossil fuel extraction. The rationale behind this pledge was to align with net-zero targets and accelerate the UK's transition to green energy. Burnham's reported plans are likely to be framed around arguments of energy security and the economic benefits associated with the North Sea oil and gas industry, potentially including job creation and maintaining a strategic energy supply during the transition period. However, the announcement is anticipated to face strong opposition from environmental organisations and many within the Labour party who see it as a contradiction of their climate commitments. Critics will argue that any new drilling is incompatible with the urgent need to reduce greenhouse gas emissions and combat the escalating climate crisis. The move also raises questions about the potential for internal party conflict and the wider implications for Labour's environmental credentials as they seek to present a united front on critical policy issues. The exact details of Burnham's proposal remain unconfirmed, but the reported intention signals a potential crack in the party's united front on energy policy.
