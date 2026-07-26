@@ -1,0 +1,13 @@
+---
+title: "Ramisa Rape and Murder Case: Sohel Rana Names New Suspect as Charges Framed"
+date: "2026-06-01T10:43:08.000Z"
+slug: "ramisa-rape-and-murder-sohel-rana-mentions-new-name-as-charges-framed-321"
+category: "General"
+tags: ["Ramisa","rape and murder","Sohel Rana","charges framed","new suspect","legal proceedings","investigation","Bangladesh"]
+image: "https://images.pexels.com/photos/11359324/pexels-photo-11359324.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+imageAlt: "Ramisa Rape and Murder Case: Sohel Rana Names New Suspect as Charges Framed"
+excerpt: "In a significant development in the Ramisa rape and murder case, the prime accused, Sohel Rana, has reportedly implicated a new individual during the framing of charges by the court. This unexpected revelation comes as the legal proceedings advance, raising questions about the scope of the investigation and the extent of the conspiracy involved. The court has officially framed charges against the identified perpetrators, setting the stage for a full trial."
+locale: "en"
+---
+
+The judicial process in the deeply disturbing Ramisa rape and murder case has taken a new turn as the prime accused, Sohel Rana, has reportedly disclosed the name of a previously unmentioned individual. Sources close to the investigation indicate that this disclosure occurred during the formal framing of charges by the court, a crucial step that solidifies the legal accusations against the accused and initiates the trial phase.  The specifics of the new name and the alleged role of this individual in the heinous crime remain unclear, but it is understood that the prosecution may seek to expand the investigation to encompass this new lead. The court's decision to frame charges signifies a belief that sufficient evidence exists to proceed with a trial, bringing the case closer to potential justice for Ramisa and her family.  This case, which has sent shockwaves through the community, has been characterized by intense public scrutiny and demands for swift and decisive action. The mention of a new name by the prime accused adds a layer of complexity, potentially indicating a wider network of involvement or a more intricate plot than initially apprehended.  Legal experts suggest that this development could necessitate further inquiry and potentially lead to amended charges or the inclusion of additional defendants. The prosecution is expected to thoroughly evaluate the information provided by Sohel Rana and present their findings to the court in due course.  Meanwhile, the victim's family continues to await justice, with the hope that the legal system will bring all those responsible for this horrific crime to account.
