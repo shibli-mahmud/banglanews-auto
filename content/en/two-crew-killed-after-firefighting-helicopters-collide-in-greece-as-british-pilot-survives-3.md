@@ -1,0 +1,13 @@
+---
+title: "Tragedy Strikes as Firefighting Helicopters Collide in Greece, Claiming Two Lives"
+date: "2026-08-02T20:36:37.000Z"
+slug: "two-crew-killed-after-firefighting-helicopters-collide-in-greece-as-british-pilot-survives-3"
+category: "General"
+tags: ["Greece wildfire","helicopter collision","air disaster","firefighting","aviation accident","international tragedy"]
+image: "https://images.pexels.com/photos/33378595/pexels-photo-33378595.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+imageAlt: "Tragedy Strikes as Firefighting Helicopters Collide in Greece, Claiming Two Lives"
+excerpt: "A mid-air collision between two firefighting helicopters over Greece has resulted in the deaths of two crew members, one Danish and one Greek national. A British pilot and another Greek crew member managed to survive the devastating incident. The choppers were engaged in operations to combat a wildfire when the collision occurred."
+locale: "en"
+---
+
+A tragic mid-air collision between two firefighting helicopters has claimed the lives of two individuals and left two others injured while they were battling a wildfire in Greece. The incident, which occurred on Thursday afternoon, involved two aircraft carrying essential firefighting personnel. Official sources confirmed that a Danish national and a Greek national lost their lives in the catastrophic event. Fortunately, a British pilot and a second Greek crew member survived the collision, though details of their injuries have not yet been released. Both helicopters were actively involved in the urgent efforts to contain a rapidly spreading wildfire in the region, highlighting the inherent dangers faced by first responders. The exact cause of the collision is currently under investigation by aviation authorities. Preliminary reports suggest that the two helicopters may have been operating in close proximity when the unforeseen accident took place. The Greek Civil Aviation Authority has launched a full inquiry, and investigators are expected to examine flight data recorders and witness testimonies to piece together the sequence of events. The loss of these two brave individuals is a stark reminder of the risks undertaken by those who fight wildfires, often in challenging and hazardous conditions. The government has expressed its deep condolences to the families of the victims and has pledged full support to the injured survivors. International authorities are also cooperating with the Greek investigation, given the nationalities involved. The collision has temporarily disrupted ongoing firefighting efforts, with resources being redirected to manage the aftermath of this devastating incident.
