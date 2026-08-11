@@ -1,0 +1,15 @@
+---
+title: "Ramisa Rape and Murder Case: Sohel Rana Names New Suspect as Charges Framed"
+date: "2026-06-01T10:43:08.000Z"
+slug: "ramisa-rape-and-murder-sohel-rana-mentions-new-name-as-charges-framed-450"
+category: "General"
+tags: ["Ramisa murder","rape case","Sohel Rana","new suspect","charges framed","Bangladesh","crime"]
+image: "https://images.pexels.com/photos/11359324/pexels-photo-11359324.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+imageAlt: "Ramisa Rape and Murder Case: Sohel Rana Names New Suspect as Charges Framed"
+excerpt: "In a significant development in the high-profile Ramisa rape and murder case, prime accused Sohel Rana has reportedly named a new individual, identified as 'Dol,' who he claims was involved in the heinous crime. This revelation comes as the court officially framed charges against the accused, marking a crucial stage in the legal proceedings. The victim, Ramisa, a young woman whose brutal death has sent shockwaves across the nation, was found dead under mysterious circumstances earlier this year. The investigation has been lengthy and complex, with initial suspicions falling on those closest to the victim. However, Rana's latest statement introduces a new dimension, potentially shifting the focus of the investigation and implicating other parties."
+locale: "en"
+---
+
+The Dhaka Metropolitan Sessions Judge's Court formally framed charges against the accused in the Ramisa rape and murder case on Monday, June 1, 2026. Among the accused is Sohel Rana, who has been a central figure in the investigation since the beginning. During the court proceedings, Rana reportedly made a startling disclosure, implicating a man named 'Dol' in the crime. According to sources close to the investigation, Rana claimed that 'Dol' was present at the scene and played a role in the conspiracy and execution of the murder and rape of Ramisa. This new piece of information has created a stir among investigators and legal experts, who are now tasked with verifying Rana's claims and locating this newly named individual. 
+
+Ramisa's tragic demise had ignited public outrage and a demand for swift justice. The investigation, initially focusing on a limited circle of suspects, has been marked by several twists and turns. The framing of charges signifies that the prosecution believes it has sufficient evidence to proceed to trial. However, Rana's statement now presents a challenge and an opportunity for the prosecution. If 'Dol' can be identified and located, his potential testimony or involvement could significantly impact the trial. Legal analysts suggest that Rana might be attempting to reduce his own culpability by naming an accomplice. Nevertheless, the court will meticulously examine all evidence and testimonies. The defense is expected to challenge the prosecution's case, and Rana's new claim will undoubtedly be a focal point of debate. The coming days are expected to see intensified efforts to corroborate Rana's statement and explore the potential involvement of 'Dol' in this deeply disturbing case.
