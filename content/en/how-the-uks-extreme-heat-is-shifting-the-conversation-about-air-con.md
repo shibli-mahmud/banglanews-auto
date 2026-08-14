@@ -1,15 +1,24 @@
 ---
-title: "UK Grapples with Air Conditioning: Heatwaves Force a Rethink on Cooling"
-date: "2026-07-29T23:33:01.000Z"
-slug: "how-the-uks-extreme-heat-is-shifting-the-conversation-about-air-con"
-category: "General"
-tags: ["UK heatwave","air conditioning","climate change","sustainability","public health","energy consumption"]
-image: "https://images.pexels.com/photos/12027846/pexels-photo-12027846.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-imageAlt: "UK Grapples with Air Conditioning: Heatwaves Force a Rethink on Cooling"
-excerpt: "Record-breaking temperatures in the UK are sparking a crucial debate about the necessity and impact of air conditioning, challenging long-held attitudes towards cooling."
-locale: "en"
+title: 'UK Grapples with Air Conditioning: Heatwaves Force a Rethink on Cooling'
+date: '2026-07-29T23:33:01.000Z'
+slug: how-the-uks-extreme-heat-is-shifting-the-conversation-about-air-con
+category: international
+tags:
+  - UK heatwave
+  - air conditioning
+  - climate change
+  - sustainability
+  - public health
+  - energy consumption
+image: >-
+  https://images.pexels.com/photos/12027846/pexels-photo-12027846.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
+imageAlt: 'UK Grapples with Air Conditioning: Heatwaves Force a Rethink on Cooling'
+excerpt: >-
+  Record-breaking temperatures in the UK are sparking a crucial debate about the
+  necessity and impact of air conditioning, challenging long-held attitudes
+  towards cooling.
+locale: en
 ---
-
 The recent wave of extreme heat across the United Kingdom has irrevocably shifted the national conversation surrounding air conditioning. For decades, the image of a cool, air-conditioned space was largely associated with the United States or continental Europe, a luxury not typically deemed essential for the often temperate British climate. However, this summer's scorching temperatures, which have pushed the mercury to unprecedented levels, have brought the issue into sharp focus, forcing many to confront a difficult question: should the UK embrace air conditioning, despite its associated costs and environmental consequences?
 
 Historically, the prevalence of air conditioning in UK homes and public buildings has been notably low compared to other developed nations. This was partly due to milder summers and a cultural preference for natural ventilation. Yet, as climate change intensifies, delivering more frequent and severe heatwaves, this passive approach is proving increasingly inadequate. Hospitals have struggled to cope, businesses have seen productivity dip, and homes, particularly those in urban areas with limited green space, have become dangerously hot.

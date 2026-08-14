@@ -1,15 +1,26 @@
 ---
-title: "Infantino's Re-election Bid Faces Growing Opposition"
-date: "2026-08-03T07:49:33.000Z"
-slug: "infantino-opponents-threaten-non-co-operation-with-fifa"
-category: "General"
-tags: ["Fifa","Gianni Infantino","Football Association","Wales FA","European Football","Governance","Re-election"]
-image: "https://images.pexels.com/photos/38104078/pexels-photo-38104078.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-imageAlt: "Infantino's Re-election Bid Faces Growing Opposition"
-excerpt: "The English Football Association is poised to withdraw its support for Gianni Infantino's bid for a third term as Fifa president, joining Wales in a significant challenge to the incumbent's leadership. This move signals escalating dissent within European football governing bodies."
-locale: "en"
+title: Infantino's Re-election Bid Faces Growing Opposition
+date: '2026-08-03T07:49:33.000Z'
+slug: infantino-opponents-threaten-non-co-operation-with-fifa
+category: sports
+tags:
+  - Fifa
+  - Gianni Infantino
+  - Football Association
+  - Wales FA
+  - European Football
+  - Governance
+  - Re-election
+image: >-
+  https://images.pexels.com/photos/38104078/pexels-photo-38104078.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
+imageAlt: Infantino's Re-election Bid Faces Growing Opposition
+excerpt: >-
+  The English Football Association is poised to withdraw its support for Gianni
+  Infantino's bid for a third term as Fifa president, joining Wales in a
+  significant challenge to the incumbent's leadership. This move signals
+  escalating dissent within European football governing bodies.
+locale: en
 ---
-
 Gianni Infantino, the current president of the Fédération Internationale de Football Association (Fifa), is facing mounting opposition to his re-election bid. The English Football Association (FA) is reportedly on the verge of withdrawing its endorsement, a decision that would follow the lead of the Welsh FA, which has already declared its non-support. This coordinated dissent from prominent European football nations presents a significant hurdle for Infantino's ambition to secure a third term at the helm of world football's governing body.
 
 The FA's potential withdrawal of backing is seen as a strong signal of dissatisfaction with Infantino's leadership and the direction of Fifa under his tenure. While the specific reasons for the opposition are not fully detailed, concerns are believed to revolve around governance, transparency, and the perceived lack of progress on key reforms within the organization. The united front presented by England and Wales could embolden other national associations to reconsider their support, potentially leading to a more contested election than Infantino might have anticipated.

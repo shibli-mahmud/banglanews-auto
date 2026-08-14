@@ -1,33 +1,40 @@
-import { notFound } from "next/navigation";
+import Link from "next/link";
+import { notFound, redirect } from "next/navigation";
 import type { Metadata } from "next";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import AdBanner from "@/components/AdBanner";
 import ArticleBody from "@/components/ArticleBody";
-import { Locale } from "@/i18n";
-import { getArticleBySlug } from "@/lib/content";
+import NewsCard from "@/components/NewsCard";
+import { Locale, isLocale, locales } from "@/i18n";
+import { formatArticleDateTime } from "@/lib/categories";
+import { getArticleBySlug, getArticleSlugs, getCanonicalSlug, getRelatedArticles } from "@/lib/content";
 import { getMessages } from "@/lib/messages";
 
 type Props = {
-  params: { locale: Locale; slug: string };
+  params: { locale: string; slug: string };
 };
 
+export const revalidate = 3600;
+
+export function generateStaticParams() {
+  return locales.flatMap((locale) => getArticleSlugs(locale).map((slug) => ({ locale, slug })));
+}
+
 export function generateMetadata({ params }: Props): Metadata {
-  const article = getArticleBySlug(params.locale, params.slug);
+  const rawLocale = params.locale.toLowerCase();
+  if (!isLocale(rawLocale)) return {};
+  const article = getArticleBySlug(rawLocale, params.slug);
   if (!article) return {};
   const siteUrl = process.env.SITE_URL || "https://banglanews-auto.vercel.app";
-  const canonical = `${siteUrl}/${params.locale}/news/${params.slug}`;
+  const canonical = `${siteUrl}/${rawLocale}/news/${params.slug}`;
   return {
-    title: `${article.title} | BanglaBriefing`,
+    title: article.title,
     description: article.excerpt,
     keywords: article.tags,
-    alternates: {
-      canonical
-    },
+    alternates: { canonical },
     openGraph: {
       title: article.title,
       description: article.excerpt,
-      images: [article.image],
+      images: article.image ? [article.image] : [],
       type: "article",
       locale: article.locale === "bn" ? "bn_BD" : "en_US",
       url: canonical
@@ -36,18 +43,29 @@ export function generateMetadata({ params }: Props): Metadata {
       card: "summary_large_image",
       title: article.title,
       description: article.excerpt,
-      images: [article.image]
+      images: article.image ? [article.image] : []
     }
   };
 }
 
 export default function ArticlePage({ params }: Props) {
-  const article = getArticleBySlug(params.locale, params.slug);
-  if (!article) notFound();
-  const t = getMessages(params.locale);
+  const rawLocale = params.locale.toLowerCase();
+  if (!isLocale(rawLocale)) notFound();
+  const locale: Locale = rawLocale;
+  const article = getArticleBySlug(locale, params.slug);
+  if (!article) {
+    const canonical = getCanonicalSlug(params.slug);
+    if (canonical && getArticleBySlug(locale, canonical)) {
+      redirect(`/${locale}/news/${canonical}`);
+    }
+    notFound();
+  }
+
+  const t = getMessages(locale);
   const siteUrl = process.env.SITE_URL || "https://banglanews-auto.vercel.app";
-  const articleUrl = `${siteUrl}/${params.locale}/news/${params.slug}`;
+  const articleUrl = `${siteUrl}/${locale}/news/${params.slug}`;
   const whatsappShareUrl = `https://wa.me/?text=${encodeURIComponent(`${article.title} - ${articleUrl}`)}`;
+  const related = getRelatedArticles(locale, article.slug);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -61,31 +79,50 @@ export default function ArticlePage({ params }: Props) {
   };
 
   return (
-    <main>
-      <Header locale={params.locale} labels={t.header} />
-      <section className="mx-auto max-w-4xl space-y-6 px-4 py-6">
+    <main className="mx-auto max-w-news px-4 py-8">
+      <article className="mx-auto max-w-3xl">
+        <p className="text-xs font-semibold uppercase tracking-wider text-news-red">
+          <Link href={`/${locale}/category/${article.category}`}>{t.home.categories[article.category]}</Link>
+        </p>
+        <h1 className="headline mt-3 text-3xl font-bold leading-tight md:text-4xl">{article.title}</h1>
+        <p className="mt-3 text-sm text-zinc-500">
+          {t.article.published}: {formatArticleDateTime(article.date, locale)}
+        </p>
+        {article.image ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={article.image} alt={article.imageAlt} className="mt-6 h-80 w-full object-cover" />
+        ) : null}
+        <p className="mt-5 text-lg leading-8 text-zinc-700">{article.excerpt}</p>
+        <div className="my-6">
+          <a
+            href={whatsappShareUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center rounded bg-green-600 px-3 py-2 text-sm font-medium text-white hover:bg-green-700"
+          >
+            {t.article.shareWhatsapp}
+          </a>
+        </div>
         <AdBanner adSlot="1000000001" adFormat="horizontal" />
-        <article className="rounded bg-white p-6 shadow-sm">
-          <h1 className="mb-3 text-3xl font-bold">{article.title}</h1>
-          <p className="mb-4 text-sm text-slate-500">{new Date(article.date).toLocaleString()}</p>
-          {article.image ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img src={article.image} alt={article.imageAlt} className="mb-5 h-80 w-full rounded object-cover" />
-          ) : null}
-          <div className="mb-5">
-            <a
-              href={whatsappShareUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center rounded bg-green-600 px-3 py-2 text-sm font-medium text-white hover:bg-green-700"
-            >
-              {params.locale === "bn" ? "হোয়াটসঅ্যাপে শেয়ার করুন" : "Share on WhatsApp"}
-            </a>
-          </div>
+        <div className="mt-6">
           <ArticleBody body={article.body} />
-        </article>
-      </section>
-      <Footer locale={params.locale} links={t.footer} />
+        </div>
+      </article>
+      {related.length > 0 ? (
+        <section className="mx-auto mt-12 max-w-3xl border-t border-zinc-200 pt-8">
+          <h2 className="headline mb-4 text-2xl font-bold">{t.article.related}</h2>
+          <div className="grid gap-6 sm:grid-cols-2">
+            {related.map((item) => (
+              <NewsCard
+                key={item.slug}
+                article={item}
+                variant="grid"
+                categoryLabel={t.home.categories[item.category]}
+              />
+            ))}
+          </div>
+        </section>
+      ) : null}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
     </main>
   );

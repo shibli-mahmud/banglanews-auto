@@ -9,6 +9,8 @@
     "lint": "next lint",
     "generate:sitemap": "node scripts/generate-sitemap.js",
     "fetch:news": "node scripts/fetch-and-generate.js",
+    "dedupe:news": "node scripts/dedupe-articles.js",
+    "prune:news": "node scripts/prune-old-articles.js",
     "social:distribute": "node scripts/social-distribute.js",
     "preflight": "node scripts/preflight-check.js",
     "verify": "npm run preflight && npm run build"

@@ -2,27 +2,44 @@
   "header": {
     "home": "হোম",
     "about": "আমাদের সম্পর্কে",
-    "contact": "যোগাযোগ"
+    "contact": "যোগাযোগ",
+    "latest": "সর্বশেষ",
+    "tagline": "বাংলাদেশ ও বিশ্বের খবর"
   },
   "footer": {
     "about": "আমাদের সম্পর্কে",
     "contact": "যোগাযোগ",
     "privacy": "প্রাইভেসি পলিসি",
-    "terms": "টার্মস"
+    "terms": "টার্মস",
+    "latest": "সর্বশেষ",
+    "sections": "বিভাগ",
+    "site": "সাইট",
+    "copyright": "সর্বস্বত্ব সংরক্ষিত।"
   },
   "home": {
     "featuredTitle": "শীর্ষ খবর",
     "latestNews": "সর্বশেষ খবর",
     "readMore": "বিস্তারিত পড়ুন",
     "noArticles": "এই বিভাগে এখনো কোনো আর্টিকেল পাওয়া যায়নি।",
-    "trending": "ট্রেন্ডিং আর্টিকেল",
+    "trending": "সর্বশেষ শিরোনাম",
+    "seeAll": "সব খবর",
+    "moreNews": "আরও খবর",
     "categories": {
       "all": "সব",
       "bangladesh": "বাংলাদেশ",
-      "international": "আন্তর্জাতিক",
+      "international": "বিশ্ব",
       "politics": "রাজনীতি",
       "sports": "খেলা",
       "tech": "প্রযুক্তি"
     }
+  },
+  "latest": {
+    "title": "সর্বশেষ খবর",
+    "page": "পৃষ্ঠা"
+  },
+  "article": {
+    "shareWhatsapp": "হোয়াটসঅ্যাপে শেয়ার করুন",
+    "related": "সংশ্লিষ্ট খবর",
+    "published": "প্রকাশ"
   }
 }

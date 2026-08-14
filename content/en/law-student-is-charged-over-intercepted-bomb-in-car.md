@@ -1,15 +1,24 @@
 ---
-title: "Law Student Charged After Intercepted Bomb Found in Car"
-date: "2026-07-24T21:51:53.000Z"
-slug: "law-student-is-charged-over-intercepted-bomb-in-car"
-category: "General"
-tags: ["bomb","law student","arrest","terrorism","crime","Australia"]
-image: "https://images.pexels.com/photos/37129335/pexels-photo-37129335.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-imageAlt: "Law Student Charged After Intercepted Bomb Found in Car"
-excerpt: "Isobella Perrie Sullivan, a law student, has been charged following the discovery of a bomb in a vehicle she was driving. Her legal counsel maintains her ignorance of the explosive device's presence."
-locale: "en"
+title: Law Student Charged After Intercepted Bomb Found in Car
+date: '2026-07-24T21:51:53.000Z'
+slug: law-student-is-charged-over-intercepted-bomb-in-car
+category: international
+tags:
+  - bomb
+  - law student
+  - arrest
+  - terrorism
+  - crime
+  - Australia
+image: >-
+  https://images.pexels.com/photos/37129335/pexels-photo-37129335.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
+imageAlt: Law Student Charged After Intercepted Bomb Found in Car
+excerpt: >-
+  Isobella Perrie Sullivan, a law student, has been charged following the
+  discovery of a bomb in a vehicle she was driving. Her legal counsel maintains
+  her ignorance of the explosive device's presence.
+locale: en
 ---
-
 Isobella Perrie Sullivan, a law student, has been formally charged in connection with the interception of an explosive device found in a car she was operating. The incident, which occurred recently, has sent ripples of concern through the community and raised questions about the circumstances surrounding the discovery.
 
 Authorities confirmed that a sophisticated explosive device was found concealed within the vehicle. While details of the investigation are still emerging, the focus has now shifted to Sullivan's alleged involvement. Her legal representation has issued a statement asserting that Ms. Sullivan had no prior knowledge of the bomb's existence or its placement within the car. Her lawyer emphasized that she was unaware of the dangerous contents of the bag she was transporting and is cooperating fully with the ongoing police inquiry.

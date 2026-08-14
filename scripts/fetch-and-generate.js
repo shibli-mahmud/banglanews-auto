@@ -1,13 +1,20 @@
 /* eslint-disable no-console */
-const fs = require("fs");
-const path = require("path");
 const Parser = require("rss-parser");
 const slugify = require("slugify");
 const { GoogleGenerativeAI } = require("@google/generative-ai");
+const {
+  TITLE_SIMILARITY_THRESHOLD,
+  DEDUPE_WINDOW_HOURS,
+  loadArticles,
+  baseSlug,
+  titleSimilarity,
+  inferCategory,
+  writeMarkdown
+} = require("./lib/article-utils");
 
 const parser = new Parser();
-const MAX_ITEMS_PER_FEED = 2;
-const MAX_ARTICLES_PER_RUN = Number(process.env.MAX_ARTICLES_PER_RUN || 25);
+const MAX_ITEMS_PER_FEED = Number(process.env.MAX_ITEMS_PER_FEED || 2);
+const MAX_ARTICLES_PER_RUN = Number(process.env.MAX_ARTICLES_PER_RUN || 5);
 const REQUEST_DELAY_MS = Number(process.env.REQUEST_DELAY_MS || 20000);
 const RETRY_LIMIT = Number(process.env.RETRY_LIMIT || 3);
 const RETRY_DELAY_MS = Number(process.env.RETRY_DELAY_MS || 30000);
@@ -16,7 +23,6 @@ const MIN_SUMMARY_LENGTH = 40;
 const RSS_FEEDS = [
   "https://feeds.bbci.co.uk/news/rss.xml",
   "https://www.thedailystar.net/rss.xml",
-  "https://www.prothomalo.com/feed",
   "https://en.prothomalo.com/feed",
   "https://www.newagebd.net/feed/rss"
 ];
@@ -24,20 +30,8 @@ const RSS_FEEDS = [
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash-lite" });
 
-function ensureDir(dir) {
-  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-}
-
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
-function sanitizeYamlString(value) {
-  return String(value || "")
-    .replaceAll("\\", "\\\\")
-    .replaceAll('"', '\\"')
-    .replaceAll("\n", " ")
-    .trim();
 }
 
 function extractJsonObject(rawText) {
@@ -88,7 +82,8 @@ async function rewriteArticle(headline, summary, category) {
 Headline: ${headline}
 Summary: ${shortSummary}
 Category: ${category}
-Return only JSON: {"en":{"title":"","excerpt":"","body":"","tags":[],"category":""},"bn":{"title":"","excerpt":"","body":"","tags":[],"category":""}}`;
+Use this exact category string for both en.category and bn.category: "${category}"
+Return only JSON: {"en":{"title":"","excerpt":"","body":"","tags":[],"category":"${category}"},"bn":{"title":"","excerpt":"","body":"","tags":[],"category":"${category}"}}`;
 
   return withRetry("Gemini rewrite", async () => {
     const result = await model.generateContent(prompt);
@@ -98,21 +93,10 @@ Return only JSON: {"en":{"title":"","excerpt":"","body":"","tags":[],"category":
     if (!parsed?.en?.body || !parsed?.bn?.body) {
       throw new Error("Gemini returned incomplete bilingual payload");
     }
+    parsed.en.category = category;
+    parsed.bn.category = category;
     return parsed;
   });
-}
-
-function resolveUniqueSlug(baseSlug, enDir, bnDir) {
-  let candidate = baseSlug;
-  let counter = 1;
-  while (
-    fs.existsSync(path.join(enDir, `${candidate}.md`)) ||
-    fs.existsSync(path.join(bnDir, `${candidate}.md`))
-  ) {
-    counter += 1;
-    candidate = `${baseSlug}-${counter}`;
-  }
-  return candidate;
 }
 
 function extractSummary(item) {
@@ -125,22 +109,43 @@ function isValidFeedItem(item) {
   return Boolean(title) && summary.length >= MIN_SUMMARY_LENGTH;
 }
 
-function buildMarkdown(payload, locale, slug, image, date) {
-  const safeBody = (payload.body || "").trim();
-  return `---
-title: "${sanitizeYamlString(payload.title)}"
-date: "${date}"
-slug: "${slug}"
-category: "${sanitizeYamlString(payload.category || "General")}"
-tags: ${JSON.stringify(payload.tags || [])}
-image: "${image}"
-imageAlt: "${sanitizeYamlString(payload.title || "News image")}"
-excerpt: "${sanitizeYamlString(payload.excerpt)}"
-locale: "${locale}"
----
+function itemIdentity(item) {
+  return {
+    guid: String(item.guid || item.id || "").trim(),
+    sourceUrl: String(item.link || "").trim()
+  };
+}
 
-${safeBody}
-`;
+function buildDedupeIndex(existingArticles) {
+  const windowMs = DEDUPE_WINDOW_HOURS * 60 * 60 * 1000;
+  const now = Date.now();
+  const recent = existingArticles.filter(
+    (article) => !article.timestamp || now - article.timestamp <= windowMs * 2
+  );
+  return {
+    slugs: new Set(existingArticles.map((article) => article.slug)),
+    baseSlugs: new Set(existingArticles.map((article) => baseSlug(article.slug))),
+    guids: new Set(existingArticles.map((article) => article.sourceGuid).filter(Boolean)),
+    urls: new Set(existingArticles.map((article) => article.sourceUrl).filter(Boolean)),
+    recent
+  };
+}
+
+function findDuplicateReason(headline, slug, identity, index) {
+  if (identity.guid && index.guids.has(identity.guid)) return `guid ${identity.guid}`;
+  if (identity.sourceUrl && index.urls.has(identity.sourceUrl)) return `url ${identity.sourceUrl}`;
+  if (index.slugs.has(slug) || index.baseSlugs.has(baseSlug(slug))) return `slug ${slug}`;
+  const match = index.recent.find((article) => titleSimilarity(headline, article.title) >= TITLE_SIMILARITY_THRESHOLD);
+  if (match) return `similar title "${match.title}"`;
+  return null;
+}
+
+function rememberGenerated(index, article) {
+  index.slugs.add(article.slug);
+  index.baseSlugs.add(baseSlug(article.slug));
+  if (article.sourceGuid) index.guids.add(article.sourceGuid);
+  if (article.sourceUrl) index.urls.add(article.sourceUrl);
+  index.recent.push(article);
 }
 
 async function run() {
@@ -148,10 +153,7 @@ async function run() {
     throw new Error("Missing GEMINI_API_KEY");
   }
 
-  const enDir = path.join(process.cwd(), "content", "en");
-  const bnDir = path.join(process.cwd(), "content", "bn");
-  ensureDir(enDir);
-  ensureDir(bnDir);
+  const index = buildDedupeIndex(loadArticles("en"));
   let generatedCount = 0;
 
   for (const feedUrl of RSS_FEEDS) {
@@ -172,22 +174,63 @@ async function run() {
         }
         const headline = item.title || "Untitled";
         const summary = extractSummary(item);
-        const category = item.categories?.[0] || "General";
-        const rawSlug = slugify(headline, { lower: true, strict: true }).slice(0, 90);
+        const identity = itemIdentity(item);
+        const slug = slugify(headline, { lower: true, strict: true }).slice(0, 90);
+        if (!slug) continue;
 
-        if (!rawSlug) continue;
+        const duplicateReason = findDuplicateReason(headline, slug, identity, index);
+        if (duplicateReason) {
+          console.log(`Skip duplicate (${duplicateReason}): ${headline}`);
+          continue;
+        }
 
-        const slug = resolveUniqueSlug(rawSlug, enDir, bnDir);
-        const enPath = path.join(enDir, `${slug}.md`);
-        const bnPath = path.join(bnDir, `${slug}.md`);
+        const category = inferCategory({
+          title: headline,
+          excerpt: summary,
+          tags: item.categories || [],
+          feedUrl,
+          rawCategory: item.categories?.[0]
+        });
 
         console.log(`Generating: ${headline}`);
         const image = (await fetchPexelsImage(`${headline} ${category}`)) || item.enclosure?.url || "";
         const rewritten = await rewriteArticle(headline, summary, category);
         const date = new Date(item.isoDate || Date.now()).toISOString();
 
-        fs.writeFileSync(enPath, buildMarkdown(rewritten.en, "en", slug, image, date), "utf8");
-        fs.writeFileSync(bnPath, buildMarkdown(rewritten.bn, "bn", slug, image, date), "utf8");
+        const sharedMeta = {
+          date,
+          slug,
+          category,
+          image,
+          sourceUrl: identity.sourceUrl,
+          sourceGuid: identity.guid,
+          sourceFeed: feedUrl
+        };
+
+        writeMarkdown("en", {
+          ...sharedMeta,
+          title: rewritten.en.title,
+          excerpt: rewritten.en.excerpt,
+          body: rewritten.en.body,
+          tags: rewritten.en.tags,
+          imageAlt: rewritten.en.title
+        });
+        writeMarkdown("bn", {
+          ...sharedMeta,
+          title: rewritten.bn.title,
+          excerpt: rewritten.bn.excerpt,
+          body: rewritten.bn.body,
+          tags: rewritten.bn.tags,
+          imageAlt: rewritten.bn.title
+        });
+
+        rememberGenerated(index, {
+          slug,
+          title: rewritten.en.title || headline,
+          timestamp: Date.parse(date),
+          sourceUrl: identity.sourceUrl,
+          sourceGuid: identity.guid
+        });
         generatedCount += 1;
 
         await sleep(REQUEST_DELAY_MS);

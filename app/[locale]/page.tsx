@@ -1,128 +1,106 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Link from "next/link";
 import NewsCard from "@/components/NewsCard";
 import AdBanner from "@/components/AdBanner";
+import SectionRow from "@/components/SectionRow";
 import { Locale, isLocale } from "@/i18n";
+import { CATEGORY_KEYS } from "@/lib/categories";
 import { getAllArticles } from "@/lib/content";
 import { getMessages } from "@/lib/messages";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 
-const CATEGORY_KEYS = ["all", "bangladesh", "international", "politics", "sports", "tech"] as const;
-type CategoryKey = (typeof CATEGORY_KEYS)[number];
+export const revalidate = 3600;
 
-export default function HomePage({
-  params,
-  searchParams
-}: {
-  params: { locale: string };
-  searchParams?: { category?: string };
-}) {
+export default function HomePage({ params }: { params: { locale: string } }) {
   const rawLocale = params.locale.toLowerCase();
   if (!isLocale(rawLocale)) notFound();
   const locale: Locale = rawLocale;
   const t = getMessages(locale);
   const articles = getAllArticles(locale);
-  const selectedCategory = (searchParams?.category ?? "all").toLowerCase();
-  const safeCategory: CategoryKey = CATEGORY_KEYS.includes(selectedCategory as CategoryKey)
-    ? (selectedCategory as CategoryKey)
-    : "all";
-  const featured = articles.slice(0, 3);
-  const filteredArticles =
-    safeCategory === "all"
-      ? articles
-      : articles.filter((article) => article.category.toLowerCase() === safeCategory);
+
+  const lead = articles[0];
+  const secondary = articles.slice(1, 5);
+  const heroSlugs = new Set(articles.slice(0, 5).map((article) => article.slug));
+  const sidebar = articles.slice(0, 10);
+  const moreNews = articles.filter((article) => !heroSlugs.has(article.slug)).slice(0, 6);
 
   return (
-    <main>
-      <Header locale={locale} labels={t.header} />
-      <section className="mx-auto max-w-6xl px-4 py-4">
-        <AdBanner adSlot="1000000001" adFormat="horizontal" />
-      </section>
-      <section className="mx-auto max-w-6xl px-4 pb-4">
-        <h1 className="mb-4 text-2xl font-bold">{t.home.featuredTitle}</h1>
-        <div className="grid gap-4 md:grid-cols-2">
-          {featured.map((article, index) => (
-            <Link
-              key={`featured-${article.slug}`}
-              href={`/${locale}/news/${article.slug}`}
-              className={`group overflow-hidden rounded bg-white shadow-sm ${index === 0 ? "md:row-span-2" : ""}`}
-            >
-              {article.image ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src={article.image}
-                  alt={article.imageAlt}
-                  className={`w-full object-cover transition group-hover:scale-[1.02] ${index === 0 ? "h-72 md:h-full" : "h-40"}`}
-                />
-              ) : null}
-              <div className="space-y-2 p-4">
-                <p className="text-xs text-slate-500">{article.category}</p>
-                <h2 className="line-clamp-2 text-lg font-semibold">{article.title}</h2>
-                <p className="line-clamp-2 text-sm text-slate-600">{article.excerpt}</p>
-              </div>
-            </Link>
-          ))}
+    <main className="mx-auto max-w-news px-4 py-6">
+      <section className="grid gap-8 lg:grid-cols-12">
+        <div className="lg:col-span-8">
+          {lead ? <NewsCard article={lead} variant="lead" categoryLabel={t.home.categories[lead.category]} /> : null}
         </div>
-      </section>
-      <section className="mx-auto max-w-6xl px-4 pb-4">
-        <AdBanner adSlot="1000000002" adFormat="horizontal" />
-      </section>
-      <section className="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-4 py-4 lg:grid-cols-10">
-        <div className="space-y-4 lg:col-span-7">
-          <h1 className="text-2xl font-bold">{t.home.latestNews}</h1>
-          <div className="flex flex-wrap gap-2">
-            {CATEGORY_KEYS.map((category) => (
-              <Link
-                key={category}
-                href={`/${locale}?category=${category}`}
-                className={`rounded-full px-3 py-1 text-sm ${
-                  safeCategory === category ? "bg-slate-900 text-white" : "bg-slate-200 text-slate-700"
-                }`}
-              >
-                {t.home.categories[category]}
-              </Link>
+        <aside className="lg:col-span-4">
+          <div className="border-t-4 border-news-red bg-white px-4">
+            {secondary.map((article) => (
+              <NewsCard
+                key={article.slug}
+                article={article}
+                variant="secondary"
+                categoryLabel={t.home.categories[article.category]}
+              />
             ))}
-          </div>
-          <div className="grid gap-4 md:grid-cols-2">
-            {filteredArticles.map((article, idx) => (
-              <div key={article.slug} className="space-y-4">
-                <NewsCard article={article} readMoreLabel={t.home.readMore} />
-                {(idx + 1) % 4 === 0 ? <AdBanner adSlot={`200000000${idx}`} adFormat="horizontal" /> : null}
-              </div>
-            ))}
-          </div>
-          {filteredArticles.length === 0 ? (
-            <div className="rounded border border-dashed border-slate-300 bg-white p-6 text-center text-slate-600">
-              {t.home.noArticles}
-            </div>
-          ) : null}
-        </div>
-        <aside className="space-y-4 lg:col-span-3 lg:sticky lg:top-4 lg:self-start">
-          <div className="hidden lg:block">
-            <AdBanner adSlot="3000000001" adFormat="rectangle" />
-          </div>
-          <div className="rounded bg-white p-4 shadow-sm">
-            <h2 className="mb-3 text-lg font-semibold">{t.home.trending}</h2>
-            <ul className="space-y-2 text-sm">
-              {articles.slice(0, 7).map((a) => (
-                <li key={`trend-${a.slug}`}>
-                  <Link href={`/${locale}/news/${a.slug}`} className="hover:text-blue-600">
-                    {a.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="hidden lg:block">
-            <AdBanner adSlot="3000000002" adFormat="rectangle" />
           </div>
         </aside>
       </section>
-      <section className="mx-auto max-w-6xl px-4 pb-4">
-        <AdBanner adSlot="5000000001" adFormat="horizontal" />
+
+      <div className="my-8">
+        <AdBanner adSlot="1000000001" adFormat="horizontal" />
+      </div>
+
+      <section className="grid gap-8 lg:grid-cols-12">
+        <div className="space-y-10 lg:col-span-8">
+          {CATEGORY_KEYS.map((category) => {
+            const sectionArticles = articles
+              .filter((article) => article.category === category && !heroSlugs.has(article.slug))
+              .slice(0, 5);
+            return (
+              <SectionRow
+                key={category}
+                title={t.home.categories[category]}
+                href={`/${locale}/category/${category}`}
+                seeAllLabel={t.home.seeAll}
+                articles={sectionArticles}
+                categoryLabel={t.home.categories[category]}
+              />
+            );
+          })}
+        </div>
+        <aside className="space-y-6 lg:col-span-4 lg:sticky lg:top-4 lg:self-start">
+          <AdBanner adSlot="3000000001" adFormat="rectangle" />
+          <div className="border border-zinc-200 bg-white p-4">
+            <h2 className="headline mb-2 border-b border-zinc-200 pb-2 text-lg font-bold">{t.home.trending}</h2>
+            {sidebar.map((article) => (
+              <NewsCard key={`side-${article.slug}`} article={article} variant="compact" />
+            ))}
+          </div>
+          <AdBanner adSlot="3000000002" adFormat="rectangle" />
+        </aside>
       </section>
-      <Footer locale={locale} links={t.footer} />
+
+      {moreNews.length > 0 ? (
+        <section className="mt-10 border-t border-zinc-300 pt-6">
+          <div className="mb-4 flex items-baseline justify-between">
+            <h2 className="headline border-l-4 border-news-red pl-3 text-2xl font-bold">{t.home.moreNews}</h2>
+            <Link href={`/${locale}/latest`} className="text-sm font-medium text-news-red hover:underline">
+              {t.home.seeAll}
+            </Link>
+          </div>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {moreNews.map((article) => (
+              <NewsCard
+                key={`more-${article.slug}`}
+                article={article}
+                variant="grid"
+                categoryLabel={t.home.categories[article.category]}
+              />
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      {articles.length === 0 ? (
+        <div className="border border-dashed border-zinc-300 bg-white p-8 text-center text-zinc-600">{t.home.noArticles}</div>
+      ) : null}
     </main>
   );
 }

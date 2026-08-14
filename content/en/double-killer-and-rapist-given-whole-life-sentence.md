@@ -1,15 +1,26 @@
 ---
-title: "Double Killer and Rapist Receives Whole Life Sentence"
-date: "2026-08-12T14:25:00.000Z"
-slug: "double-killer-and-rapist-given-whole-life-sentence"
-category: "General"
-tags: ["murder","rape","sentencing","whole life sentence","Tottenham","crime","justice"]
-image: "https://images.pexels.com/photos/6069250/pexels-photo-6069250.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-imageAlt: "Double Killer and Rapist Receives Whole Life Sentence"
-excerpt: "Simon Levy, a 45-year-old man from Tottenham, has been handed a whole life sentence for the brutal murders of two women and the rape of a third. The sentencing at the Old Bailey marks the culmination of a deeply disturbing case that has gripped the community."
-locale: "en"
+title: Double Killer and Rapist Receives Whole Life Sentence
+date: '2026-08-12T14:25:00.000Z'
+slug: double-killer-and-rapist-given-whole-life-sentence
+category: international
+tags:
+  - murder
+  - rape
+  - sentencing
+  - whole life sentence
+  - Tottenham
+  - crime
+  - justice
+image: >-
+  https://images.pexels.com/photos/6069250/pexels-photo-6069250.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
+imageAlt: Double Killer and Rapist Receives Whole Life Sentence
+excerpt: >-
+  Simon Levy, a 45-year-old man from Tottenham, has been handed a whole life
+  sentence for the brutal murders of two women and the rape of a third. The
+  sentencing at the Old Bailey marks the culmination of a deeply disturbing case
+  that has gripped the community.
+locale: en
 ---
-
 Simon Levy will never be released from prison after being sentenced today for the heinous crimes he committed. The 45-year-old admitted to the murders of Sarah Jenkins and Emily Carter, whose lives were tragically cut short in separate incidents. He also pleaded guilty to the rape of another victim, whose identity remains protected. 
 
 The court heard harrowing details of the crimes, painting a grim picture of Levy's predatory behaviour. Prosecutors presented overwhelming evidence, including forensic reports and witness testimonies, that unequivocally linked Levy to the atrocities. The victims' families, present in court, listened with stoic resilience as the full extent of their loved ones' suffering was revealed.

@@ -2,27 +2,44 @@
   "header": {
     "home": "Home",
     "about": "About",
-    "contact": "Contact"
+    "contact": "Contact",
+    "latest": "Latest",
+    "tagline": "Bangladesh and world news"
   },
   "footer": {
     "about": "About",
     "contact": "Contact",
     "privacy": "Privacy Policy",
-    "terms": "Terms"
+    "terms": "Terms",
+    "latest": "Latest",
+    "sections": "Sections",
+    "site": "Site",
+    "copyright": "All rights reserved."
   },
   "home": {
     "featuredTitle": "Top Stories",
     "latestNews": "Latest News",
     "readMore": "Read more",
     "noArticles": "No articles found for this category yet.",
-    "trending": "Trending Articles",
+    "trending": "Latest Headlines",
+    "seeAll": "See all",
+    "moreNews": "More news",
     "categories": {
       "all": "All",
       "bangladesh": "Bangladesh",
-      "international": "International",
+      "international": "World",
       "politics": "Politics",
       "sports": "Sports",
       "tech": "Tech"
     }
+  },
+  "latest": {
+    "title": "Latest News",
+    "page": "Page"
+  },
+  "article": {
+    "shareWhatsapp": "Share on WhatsApp",
+    "related": "Related stories",
+    "published": "Published"
   }
 }

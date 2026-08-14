@@ -9,20 +9,18 @@ type Props = {
 const formatClasses: Record<NonNullable<Props["adFormat"]>, string> = {
   auto: "min-h-[90px]",
   horizontal: "min-h-[90px]",
-  rectangle: "min-h-[280px]"
+  rectangle: "min-h-[250px]"
 };
 
 export default function AdBanner({ adSlot, adFormat = "auto", className }: Props) {
   const adClient = process.env.NEXT_PUBLIC_ADSENSE_ID;
   const showPlaceholder = process.env.NODE_ENV !== "production" || !adClient;
-  const baseClasses = `w-full rounded ${formatClasses[adFormat]} ${className ?? ""}`;
+  const baseClasses = `w-full ${formatClasses[adFormat]} ${className ?? ""}`;
 
   if (showPlaceholder) {
     return (
-      <div
-        className={`${baseClasses} border border-dashed border-slate-300 p-4 text-center text-xs text-slate-500`}
-      >
-        Ad Placeholder ({adFormat}) - slot {adSlot}
+      <div className={`${baseClasses} flex items-center justify-center bg-zinc-100 text-[11px] uppercase tracking-widest text-zinc-400`}>
+        Advertisement
       </div>
     );
   }

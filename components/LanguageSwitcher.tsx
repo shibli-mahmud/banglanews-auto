@@ -24,14 +24,21 @@ export default function LanguageSwitcher({ locale }: { locale: Locale }) {
   };
 
   return (
-    <select
-      className="rounded border px-2 py-1"
-      value={value}
-      onChange={(e) => onChange(e.target.value as Locale)}
-      aria-label="Language switcher"
-    >
-      <option value="en">English</option>
-      <option value="bn">বাংলা</option>
-    </select>
+    <div className="inline-flex overflow-hidden rounded border border-zinc-300 text-xs font-semibold uppercase tracking-wide">
+      <button
+        type="button"
+        className={`px-2.5 py-1 ${value === "en" ? "bg-news-red text-white" : "bg-white text-zinc-700"}`}
+        onClick={() => onChange("en")}
+      >
+        EN
+      </button>
+      <button
+        type="button"
+        className={`px-2.5 py-1 ${value === "bn" ? "bg-news-red text-white" : "bg-white text-zinc-700"}`}
+        onClick={() => onChange("bn")}
+      >
+        বাংলা
+      </button>
+    </div>
   );
 }

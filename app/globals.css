@@ -2,6 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --news-red: #9f1239;
+  --news-ink: #111827;
+  --news-muted: #6b7280;
+  --news-line: #e5e7eb;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  @apply bg-slate-50 text-slate-900;
+  @apply bg-zinc-50 text-zinc-900 antialiased;
+  font-family: var(--font-source-sans), var(--font-noto-sans-bengali), sans-serif;
+}
+
+.font-bangla {
+  font-family: var(--font-noto-sans-bengali), var(--font-source-sans), sans-serif;
+}
+
+.headline {
+  font-family: var(--font-source-serif), var(--font-noto-serif-bengali), Georgia, serif;
+  letter-spacing: -0.02em;
+}
+
+.bn .headline {
+  font-family: var(--font-noto-serif-bengali), var(--font-source-serif), Georgia, serif;
 }

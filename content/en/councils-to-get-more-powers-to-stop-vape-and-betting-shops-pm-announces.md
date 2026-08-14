@@ -1,15 +1,25 @@
 ---
-title: "Councils Gain New Powers to Curb Vape and Betting Shops, PM Announces"
-date: "2026-08-10T21:33:51.000Z"
-slug: "councils-to-get-more-powers-to-stop-vape-and-betting-shops-pm-announces"
-category: "General"
-tags: ["local government","planning laws","town centres","vape shops","betting shops","retail","Andy Burnham"]
-image: "https://images.pexels.com/photos/20185329/pexels-photo-20185329.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-imageAlt: "Councils Gain New Powers to Curb Vape and Betting Shops, PM Announces"
-excerpt: "Prime Minister Andy Burnham revealed plans to grant local authorities enhanced authority to regulate the proliferation of vape and betting shops, citing the detrimental impact of these establishments on the vibrancy of town centres."
-locale: "en"
+title: 'Councils Gain New Powers to Curb Vape and Betting Shops, PM Announces'
+date: '2026-08-10T21:33:51.000Z'
+slug: councils-to-get-more-powers-to-stop-vape-and-betting-shops-pm-announces
+category: politics
+tags:
+  - local government
+  - planning laws
+  - town centres
+  - vape shops
+  - betting shops
+  - retail
+  - Andy Burnham
+image: >-
+  https://images.pexels.com/photos/20185329/pexels-photo-20185329.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
+imageAlt: 'Councils Gain New Powers to Curb Vape and Betting Shops, PM Announces'
+excerpt: >-
+  Prime Minister Andy Burnham revealed plans to grant local authorities enhanced
+  authority to regulate the proliferation of vape and betting shops, citing the
+  detrimental impact of these establishments on the vibrancy of town centres.
+locale: en
 ---
-
 In a significant announcement aimed at revitalising struggling high streets, Prime Minister Andy Burnham declared that councils will soon be equipped with greater powers to control the opening of new vape and betting shops. Speaking at a recent press conference, Burnham articulated a vision for the future of Britain's town centres, stating that they had been "hollowed out" by decades of decline and the unchecked growth of specific retail outlets.
 
 The new legislation, expected to be introduced in Parliament soon, will allow local councils to implement stricter planning controls, effectively limiting the concentration of these businesses in residential and commercial areas. Currently, existing regulations often allow these types of shops to open with relative ease, contributing to a perceived erosion of traditional retail diversity and community spaces. The Prime Minister emphasised that this move is not about banning these businesses entirely, but about empowering local decision-makers to strike a better balance and ensure that town centres serve the broader needs of their communities.
