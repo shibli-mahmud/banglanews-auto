@@ -33,7 +33,14 @@ export const metadata: Metadata = {
     default: "BanglaBriefing",
     template: "%s | BanglaBriefing"
   },
-  description: "Bilingual Bangladesh and world news in Bangla and English."
+  description: "Bilingual Bangladesh and world news in Bangla and English.",
+  // PAUSED 2026-09-23 - site withheld from search while content is under review.
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+    googleBot: { index: false, follow: false }
+  }
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

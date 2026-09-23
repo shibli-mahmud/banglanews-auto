@@ -1,3 +1,4 @@
+# Site paused 2026-09-23 - content under editorial review.
+# Indexing is disabled until the content pipeline is rebuilt.
 User-agent: *
-Allow: /
-Sitemap: https://banglanews-auto.vercel.app/sitemap.xml
+Disallow: /
